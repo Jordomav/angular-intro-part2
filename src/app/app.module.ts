@@ -22,6 +22,9 @@ import { fakeBackendProvider } from './fake-backend/fake-backend';
 import { MockBackend } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +58,11 @@ import { AdminComponent } from './components/admin/admin.component';
     MatCardModule
   ],
   providers: [
+    AuthGuardService,
+    AdminAuthGuardService,
+
+    // This is for the Lesson
+    // For creating a mock back-end. You don't need these in a real app.
     fakeBackendProvider,
     MockBackend,
     BaseRequestOptions
